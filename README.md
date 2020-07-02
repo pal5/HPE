@@ -33,7 +33,7 @@ optional arguments:
   -chf CHAIN_FILE  specify the certificate chain file
 ```
 
-there are two inputs to run.py:- \
+there are two inputs to run.py:- <br>
 1) chain file (.pem format) in the crt folder , option to use is "-chf" \
 2) CRL file (.crl format) in the crl folder, option to use is "-crlf" \
  or \
