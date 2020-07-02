@@ -7,18 +7,19 @@ run.py checks if the serial numbers of the certificates in the chain file exists
 hence we need internet connection to test the code if we are obtaining the CRL using the CRL URL.
 since i couldn't find a revoked certificate online, i created my own CA self signed certificate and using this, i have created server certificate with a serial number 0x1e3a9301cfc7206383f9a531d, this certificate is named as test.pem in the /crt folder. this serial number exists in the root.crl present in the crl folder.
 
-\crt folder \
-chain.pem - is a chain of certificates from google.com \
-test.pem - is a certificate i have created with a custom serial number \
+\crt folder <br>
+chain.pem - is a chain of certificates from google.com <br>
+test.pem - is a certificate i have created with a custom serial number <br>
 chain+test.pem - is a chain of certificate with test.pem certificate in it.
 
-\crl folder \
+\crl folder <br>
 root.crl - is google.com root certificate crl file
 
-packages required \
-pem :- pip install pem \
-openssl :- pip install pyopenssl \
-cryprography, codecs, os, argparse, requests.
+packages required <br>
+pem :- ```pip install pem``` <br>
+openssl :- ```pip install pyopenssl``` <br>
+cryprography, codecs, os, argparse, requests <br>
+to install all requirements use ```pip install -r requirements.txt```
 
 ```
 $ python run.py -h
