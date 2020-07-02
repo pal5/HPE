@@ -57,11 +57,11 @@ optional arguments:
   -chf CHAIN_FILE  specify the certificate chain file
 ```
 
-there is only one input to run2.py:-\
-1) chain file (.pem format) in the crt folder , option to use is "-chf" \
+there is only one input to run2.py:- <br>
+1) chain file (.pem format) in the crt folder , option to use is "-chf" <br>
 
-test commands:- \
-python run2.py -chf chain+test.pem \
-python run2.py -chf chain+test.pem \
-python run2.py -chf chain.pem \
-python run2.py -chf chain.pem \
+test commands:- <br>
+python run2.py -chf chain+test.pem <br>
+python run2.py -chf chain+test.pem \<br>
+python run2.py -chf chain.pem <br>
+python run2.py -chf chain.pem <br>
