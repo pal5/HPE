@@ -34,16 +34,16 @@ optional arguments:
 ```
 
 there are two inputs to run.py:- <br>
-1) chain file (.pem format) in the crt folder , option to use is "-chf" \
-2) CRL file (.crl format) in the crl folder, option to use is "-crlf" \
- or \
-   CRL url, option to use is "-crlu" \
+1) chain file (.pem format) in the crt folder , option to use is "-chf" <br>
+2) CRL file (.crl format) in the crl folder, option to use is "-crlf" <br>
+ or <br>
+   CRL url, option to use is "-crlu" <br>
 
-test commands:- \
-python run.py -chf chain+test.pem -crlu http://crl.pki.goog/gsr2/gsr2.crl \
-python run.py -chf chain+test.pem -crlf root.crl \
-python run.py -chf chain.pem -crlu http://crl.pki.goog/gsr2/gsr2.crl \
-python run.py -chf chain.pem -crlf root.crl \
+test commands:- <br>
+python run.py -chf chain+test.pem -crlu http://crl.pki.goog/gsr2/gsr2.crl <br>
+python run.py -chf chain+test.pem -crlf root.crl <br>
+python run.py -chf chain.pem -crlu http://crl.pki.goog/gsr2/gsr2.crl <br>
+python run.py -chf chain.pem -crlf root.crl <br>
 
 
 ```
@@ -57,7 +57,7 @@ optional arguments:
   -chf CHAIN_FILE  specify the certificate chain file
 ```
 
-there is only one input to run2.py: \
+there is only one input to run2.py:-\
 1) chain file (.pem format) in the crt folder , option to use is "-chf" \
 
 test commands:- \
