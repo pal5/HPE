@@ -14,7 +14,7 @@ chain+test.pem - is a chain of certificate with test.pem certificate in it.
 \crl folder
 root.crl - is google.com root certificate crl
 
------------------------------------------------------------------------------------------------
+```
 $ python run.py -h
 usage: run.py [-h] (-crlf CRL_FILE | -crlu CRL_URL) -chf CHAIN_FILE
 
@@ -25,7 +25,7 @@ optional arguments:
   -crlf CRL_FILE   specify the .crl file
   -crlu CRL_URL    specify the CRL URL
   -chf CHAIN_FILE  specify the certificate chain file
------------------------------------------------------------------------------------------------
+```
 
 there are two inputs to run.py:-
 1) chain file (.pem format) in the crt folder , option to use is "-chf"
@@ -40,7 +40,7 @@ python run.py -chf chain.pem -crlu http://crl.pki.goog/gsr2/gsr2.crl
 python run.py -chf chain.pem -crlf root.crl
 
 
------------------------------------------------------------------------------------------------
+```
 $ python run2.py -h
 usage: run2.py [-h] -chf CHAIN_FILE
 
@@ -49,7 +49,7 @@ certificate chain validation
 optional arguments:
   -h, --help       show this help message and exit
   -chf CHAIN_FILE  specify the certificate chain file
------------------------------------------------------------------------------------------------
+```
 
 there is only one input to run2.py:
 1) chain file (.pem format) in the crt folder , option to use is "-chf"
