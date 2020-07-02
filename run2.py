@@ -11,7 +11,7 @@ parser.add_argument('-chf', dest="CHAIN_FILE",required=True,default=None,help="s
 args=parser.parse_args()
 
 """
-`oid` is an object identifier object
+`oid` is an object identifier, each extension has an oid associated with it, the oid for CRL distribution point extension is 2.5.29.31, we need to pass the objects as an argument in order to get the CRL distribution point (url) from the certificate. the url once obtained can be used to get the crl file.
 `valid` specifies if the certificate chain is valid or not, default is true and is set to None when certificate is revoke
 """
 oid=ObjectIdentifier("2.5.29.31")
@@ -30,16 +30,14 @@ for i in range(0,len(certs)):
     dict_sn={}
     print("Certificate Details -",i+1)
     #print("X509 object = ",cert) # return X509 object
-    #print("issuer = ",cert.get_issuer()) # return X509Name object
-    #print("subject of certificate = ",cert.get_subject())
-    #print("digest = ",cert.digest())
-    #print("extension = ",cert.get_extension())
     #print("no. of extensions = ",cert.get_extension_count())
     #pubkey_object=cert.get_pubkey()
     #print("public key = ",crypto.dump_publickey(crypto.FILETYPE_PEM,pubkey_object))
     #print("public key = ",cert.get_pubkey().to_cryptography_key().public_numbers())
     #print("signature algo used = ",cert.get_signature_algorithm().decode('UTF-8'))
     #print("certificate version = ",cert.get_version())
+    print("issuer = ",cert.get_issuer()) # return X509Name object
+    print("subject of certificate = ",cert.get_subject())
     not_after=cert.get_notAfter().decode('UTF-8')   #decode byte return type to a string
     not_after=not_after[0:4]+"-"+not_after[4:6]+"-"+not_after[6:8]
     print("not after = ",not_after)   
@@ -53,15 +51,20 @@ for i in range(0,len(certs)):
 
     crypto_X509_obj=cert.to_cryptography()
     """
-    returns a cryptography.x509.Certificate object, we need to get the CRL distribution point of the certiificate issuer
+    returns a cryptography.x509.Certificate object, we need to use this to get the CRL distribution point of the certiificate issuer
     """
 
     #print("cryptography = ",crypto_X509_obj)
     #print("x509 cert = ",type(cert))
     #print("***********************")
     #print("crypto x509 cert = ",type(crypto_X509_obj))
+    try:
+        CRL_URL=crypto_X509_obj.extensions.get_extension_for_oid(oid).value[0].full_name[0].value
+    except:
+        print("extension not found, CRL URL doesn't exist")
+        print("use `openssl x509 -in <.pem file> -text` to check if CRL distribution point exists")
+        exit()
 
-    CRL_URL=crypto_X509_obj.extensions.get_extension_for_oid(oid).value[0].full_name[0].value
     print("CRL_URL = ",CRL_URL)
     resp = requests.get(CRL_URL)
     #print("Respones = ", resp)

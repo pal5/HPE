@@ -48,14 +48,6 @@ for key in dict_sn:
 print()
 certs=pem.parse_file(os.getcwd()+"\\crt\\"+args.CHAIN_FILE)
 # return a pem object for each certificate 
-"""
-print("pem certificate type")
-print(certs)
-print(certs[0])
-print(str(certs[0]))
-print(type(certs[0]))
-"""
-
 
 """
 we start parsing from the beginning i.e the end-entity certificate and reach to the root certificate
@@ -66,10 +58,7 @@ for i in range(0,len(certs)):
     
     print("Certificate Details -",i+1)
     #print("X509 object = ",cert) # return X509 object
-    #print("digest = ",cert.digest())
-    #print("extension = ",cert.get_extension())
     #print("no. of extensions = ",cert.get_extension_count())
-    #print("public key = ",crypto.dump_publickey(crypto.FILETYPE_PEM,pubkey_object))
     #print("public key = ",cert.get_pubkey().to_cryptography_key().public_numbers())
     #print("signature algo used = ",cert.get_signature_algorithm().decode('UTF-8'))
     #print("certificate version = ",cert.get_version())
