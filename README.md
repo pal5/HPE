@@ -2,9 +2,10 @@
 CA chain validation
 
 There are two files run.py and run2.py
-run.py checks if the serial numbers of the certificates in the chain file exists in the CRL specified, hence we need two inputs for run.py i.e the chain file and a CRL file/URL. But since this is not how certificate path validation alogirithms are typically implemented i.e they check if the serial number of certificate exists in the CRL provided by certificate issuer at the CRL distribution point. so this implemented in run2.py. hence we have only one input i.e the chain, it obtains the CRL file from the CRL distribution points of the certificate issuer. 
+
+run.py checks if the serial numbers of the certificates in the chain file exists in the CRL specified, hence we need two inputs for run.py i.e the chain file and a CRL file/URL. But since this is not how certificate path validation alogirithms are typically implemented i.e they check if the serial number of certificate exists in the CRL provided by certificate issuer at the CRL distribution point. so this is implemented in run2.py. hence we have only one input i.e the chain file, it obtains the CRL file from the CRL distribution points of the certificate issuer. 
 hence we need internet connection to test the code if we are obtaining the CRL using the CRL URL.
-since i couldn't find a revoked certificate online, i created my own CA self signed certificate and using this i have created server certificate with a serial number 0x1e3a9301cfc7206383f9a531d, this certificate is named as test.pem in the crt folder. this serial number exists in the root.crl present in the crl folder.
+since i couldn't find a revoked certificate online, i created my own CA self signed certificate and using this, i have created server certificate with a serial number 0x1e3a9301cfc7206383f9a531d, this certificate is named as test.pem in the /crt folder. this serial number exists in the root.crl present in the crl folder.
 
 \crt folder
 chain.pem - is a chain of certificates from google.com
@@ -12,7 +13,7 @@ test.pem - is a certificate i have created with a custom serial number
 chain+test.pem - is a chain of certificate with test.pem certificate in it.
 
 \crl folder
-root.crl - is google.com root certificate crl
+root.crl - is google.com root certificate crl file
 
 ```
 $ python run.py -h
