@@ -15,7 +15,7 @@ chain+test.pem - is a chain of certificate with test.pem certificate in it.
 \crl folder
 root.crl - is google.com root certificate crl file
 
-packages required
+packages required \
 pem :- pip install pem
 openssl :- pip install pyopenssl
 cryprography, codecs, os, argparse, requests.
