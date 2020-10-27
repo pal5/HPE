@@ -1,4 +1,4 @@
 pem==20.1.0
 requests==2.21.0
-cryptography==2.9.2
+cryptography==3.2
 pyOpenSSL==19.1.0
